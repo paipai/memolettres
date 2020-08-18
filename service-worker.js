@@ -1,14 +1,14 @@
 // give your cache a name
-const cacheName = 'v4';
+const cacheName = 'v1';
 
 // put the static assets and routes you want to cache here
 const filesToCache = [
-  '/',  
-  '/index.html',  
-  '/ressources/monster.png',  
-  '/ressources/script.js',  
-  '/ressources/styles.css',
-  '/favicon.ico'
+  './',  
+  './index.html',  
+  './ressources/monster.png',  
+  './ressources/script.js',  
+  './ressources/styles.css',
+  './favicon.ico'
 ]; 
 
 // the event handler for the activate event
