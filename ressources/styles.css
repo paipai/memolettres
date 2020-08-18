@@ -134,9 +134,9 @@ main {
     padding: 4rem 0;    
 }
 
-.toolbar button:hover, .toolbar button:focus {
+/*.toolbar button:hover, .toolbar button:focus {
     background-color: #e8e8e8;
-}
+}*/
 
 header .btn-back {
     position: absolute;

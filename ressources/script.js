@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
     initWorker();
     initDefaultOptions();
     initEvent();
+    initFocus();
     start();
 });
 
@@ -51,6 +52,18 @@ function initDefaultOptions() {
 function loadOptions() {
     document.getElementById('delay').value = app.config.delay;
     document.getElementById('nbletters').value = app.config.nbLetters;
+}
+
+// Display focus only when user navigates with keyboard
+function initFocus() {
+    var head = document.head || document.getElementsByTagName('head')[0];
+    var axsStyles = head.appendChild(document.createElement('style'));
+    document.addEventListener('mousedown', function() {
+        axsStyles.innerHTML = '* {outline:none !important}';
+    });
+    document.addEventListener('keydown', function() {
+        axsStyles.innerHTML = '';
+    });
 }
 
 function initEvent() {
