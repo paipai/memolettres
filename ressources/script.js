@@ -47,6 +47,12 @@ function initDefaultOptions() {
     document.getElementById('nbletters').value = app.config.nbLetters;
 }
 
+// Load options
+function loadOptions() {
+    document.getElementById('delay').value = app.config.delay;
+    document.getElementById('nbletters').value = app.config.nbLetters;
+}
+
 function initEvent() {
     
     document.getElementById('btn-training').addEventListener('click', () => startTraining());    
@@ -58,9 +64,19 @@ function initEvent() {
         show();
     });
 
+    // Save options
     document.getElementById('btn-saveoptions').addEventListener('click', (e) => {
-        app.config.delay = document.getElementById('delay').value;
-        app.config.nbLetters = document.getElementById('nbletters').value;
+        let delay = document.getElementById('delay').value;
+        let nbLetters = document.getElementById('nbletters').value;
+        
+        if (!isNaN(delay)) {            
+            app.config.delay = delay;
+        }
+        
+        if (!isNaN(nbLetters)) {
+            app.config.nbLetters = nbLetters;
+        }
+
         showSection('home');
     });
 
@@ -86,7 +102,7 @@ function initEvent() {
     });    
 
     document.getElementById('btn-options').addEventListener('click', (e) => {
-        showSection('options');
+        showSection('options', loadOptions);
     });
     
     document.getElementById('btn-game').addEventListener('click', (e) => {
@@ -95,7 +111,12 @@ function initEvent() {
 
     [].forEach.call(document.querySelectorAll('.game .toolbar .btn-answer'), function(el) {
         el.addEventListener('click', function() {
-            
+            if (app.isWaiting === true) {
+                return;
+            }
+
+            app.isWaiting = true;
+
             if (document.querySelector('.game .screen').innerHTML == el.innerHTML) {
                 app.game.score += app.game.levels[app.game.currentlevel].rate;
                 el.classList.add('right');
@@ -110,6 +131,7 @@ function initEvent() {
             updateScore();
 
             window.setTimeout(function () {
+                app.isWaiting = false;
                 document.querySelector('.game').classList.remove('isWaiting');
                 el.classList.remove('right');
                 el.classList.remove('wrong');
@@ -138,8 +160,11 @@ function startTraining() {
     window.setTimeout(function () { next();}, 1000);
 }
 
-function showSection(toolbar) {
-    document.body.dataset.section = toolbar;    
+function showSection(toolbar, callback) {
+    document.body.dataset.section = toolbar;
+    if (callback) {
+        callback();
+    }
 }
 
 function next() {
@@ -170,7 +195,7 @@ function nextGame() {
 
     // auto hide after delay
     window.setTimeout(function() {
-        app.isWaiting = true;
+        //app.isWaiting = true;
         screen.style.visibility = 'hidden';
 
         let trueAnswer = Math.floor(Math.random() * 4);
