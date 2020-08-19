@@ -19,6 +19,8 @@ body {
 [data-section="home"] .section.home, 
 [data-section="options"] .section.options,
 [data-section="training"] .section.training,
+[data-section="micmac"] .section.micmac,
+[data-section="tactac"] .section.tactac,
 [data-section="game"] .section.game {
     display: block;
 }
@@ -129,19 +131,15 @@ main {
     background: #fff;    
     text-align: center; 
     border-radius: 1rem;    
-    font-size: 500%;
+    font-size: 400%;
     font-weight: bold;    
     padding: 4rem 0;    
 }
 
-/*.toolbar button:hover, .toolbar button:focus {
-    background-color: #e8e8e8;
-}*/
-
 header .btn-back {
     position: absolute;
     right: .5rem;
-    top: 0;    
+    top: -.25rem;    
     border: .1rem solid #000;
     font-size: 100%;
     background: #fff;
@@ -165,10 +163,14 @@ header .btn-back {
     display: none;
 }
 
-.game .answer button.right {
+.answer button.right {
     background-color: #8e8;
 }
 
-.game .answer button.wrong {
+.answer button.wrong {
     background-color: #e88;
+}
+
+.tactac.active .screen-container {
+    background-image: none;
 }
