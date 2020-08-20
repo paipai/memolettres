@@ -180,10 +180,10 @@ function initEvent() {
 
             // If same letters && Ok button || different letters && KO button => good answer
             if ((screen.innerHTML == screen.dataset.letters && el.dataset.value === "true") || (screen.innerHTML != screen.dataset.letters && el.dataset.value === "false")) {
-                app.game.score += app.game.levels[app.game.currentlevel].rate;
+                app.game.score += 30;
                 el.classList.add('right');
             } else {
-                app.game.score -= (app.game.levels[app.game.currentlevel].rate);
+                app.game.score -= 50;
                 if (app.game.score < 0) {
                     app.game.score = 0;
                 }
@@ -336,7 +336,7 @@ function updateScoreMicmac() {
     
     if (app.game.score > app.game.levels[app.game.currentlevel + 1].minscore) {
         app.game.currentlevel += 1;
-        if (app.game.currentLevel > 6) { app.game.currentlevel = 6; }        
+        if (app.game.currentLevel > 11) { app.game.currentlevel = 11; }        
     }
 
     if (app.game.score < app.game.levels[app.game.currentlevel].minscore) {
@@ -352,16 +352,6 @@ function updateScoreMicmac() {
 }
 
 function updateScoreTactac() {
-    if (app.game.score > app.game.levels[app.game.currentlevel + 1].minscore) {
-        app.game.currentlevel += 1;
-        if (app.game.currentLevel > 6) { app.game.currentlevel = 6; }        
-    }
-
-    if (app.game.score < app.game.levels[app.game.currentlevel].minscore) {
-        app.game.currentlevel -= 1;
-        if (app.game.currentLevel < 0) { app.game.currentlevel = 0; }
-    }
-
     if (app.game.highscoreTactac < app.game.score) {
         app.game.highscoreTactac = app.game.score;
     }
