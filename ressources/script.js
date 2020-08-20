@@ -183,7 +183,7 @@ function initEvent() {
                 app.game.score += 30;
                 el.classList.add('right');
             } else {
-                app.game.score -= 50;
+                app.game.score -= 60;
                 if (app.game.score < 0) {
                     app.game.score = 0;
                 }
