@@ -287,6 +287,7 @@ function nextGameMicmac() {
 function nextGameTactac() {
     let screen = document.querySelector('.tactac .screen');
     
+    app.isWaiting = true;
     document.querySelector('.section.tactac').classList.add('active');
 
     // Get random letters
@@ -317,6 +318,7 @@ function nextGameTactac() {
             window.setTimeout(function() {
                 screen.style.visibility = 'hidden';
                 document.querySelector('.section.tactac').classList.remove('active');
+                app.isWaiting = false;
             }, app.config.delay * 0.5);
         }, app.config.delay * 0.75);
 
