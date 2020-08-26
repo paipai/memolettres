@@ -280,7 +280,7 @@ function nextGameMicmac() {
 
         document.querySelector('.game').classList.add('isWaiting');
 
-    }, app.config.delay; //app.game.levels[app.game.currentlevel].delay);
+    }, app.config.delay); //app.game.levels[app.game.currentlevel].delay);
     
 }
 
