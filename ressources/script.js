@@ -1,7 +1,7 @@
 let app =  {    
     config: {
         nbLetters: 5,
-        delay: 400
+        delay: 200
     },
     game: {
         currentlevel: 0,
@@ -280,7 +280,7 @@ function nextGameMicmac() {
 
         document.querySelector('.game').classList.add('isWaiting');
 
-    }, app.game.levels[app.game.currentlevel].delay);
+    }, app.config.delay); //app.game.levels[app.game.currentlevel].delay);
     
 }
 
