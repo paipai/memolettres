@@ -319,10 +319,10 @@ function nextGameTactac() {
                 screen.style.visibility = 'hidden';
                 document.querySelector('.section.tactac').classList.remove('active');
                 app.isWaiting = false;
-            }, app.config.delay * 0.5);
-        }, app.config.delay * 0.75);
+            }, (app.config.delay+100) * 0.5);
+        }, (app.config.delay+100) * 0.75);
 
-    }, app.config.delay * 0.5);
+    }, (app.config.delay+100) * 0.5);
 
 }
 
