@@ -316,13 +316,19 @@ function nextGameTactac() {
         window.setTimeout(function() {
             screen.style.visibility = 'visible';
             window.setTimeout(function() {
+                // Hide letters
                 screen.style.visibility = 'hidden';
-                document.querySelector('.section.tactac').classList.remove('active');
-                app.isWaiting = false;
-            }, app.config.delay * 0.5);
-        }, app.config.delay * 0.75);
 
-    }, app.config.delay * 0.5);
+                // Show logo
+                window.setTimeout(function() {
+                    document.querySelector('.section.tactac').classList.remove('active');
+                    app.isWaiting = false;
+                }, app.config.delay);
+
+            }, app.config.delay * 0.5);
+        }, app.config.delay);
+
+    }, app.config.delay);
 
 }
 

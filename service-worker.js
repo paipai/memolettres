@@ -1,5 +1,5 @@
 // give your cache a name
-const cacheName = 'v6';
+const cacheName = 'v7';
 
 // put the static assets and routes you want to cache here
 const filesToCache = [
